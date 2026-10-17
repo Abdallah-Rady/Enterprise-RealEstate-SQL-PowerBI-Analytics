@@ -1,23 +1,32 @@
-🏢 Enterprise Real Estate Analytics System
-End-to-End BI Pipeline: SQL Server 2019 + Power BI + Advanced Financial Analytics
-📌 Executive Summary
-This project delivers an end-to-end Business Intelligence solution tailored for executive-level decision-making in the Egyptian real estate market. It evaluates transactional performance across 5 key economic regions (New Cairo, Sheikh Zayed, New Capital, North Coast, and Mostakbal City).
+# 🏢 Enterprise Real Estate Analytics System
+### *End-to-End BI Pipeline: SQL Server 2019 + Power BI + Advanced Financial Analytics*
+
+![SQL Server](https://img.shields.io/badge/SQL%20Server-2019-red?style=flat&logo=microsoft-sql-server)
+![Power BI](https://img.shields.io/badge/Power%20BI-Executive%20Dashboard-yellow?style=flat&logo=power-bi)
+![DAX](https://img.shields.io/badge/DAX-Advanced%20Measures-blue)
+![Data Modeling](https://img.shields.io/badge/Data%20Model-Star%20Schema-green)
+
+---
+
+## 📌 Executive Summary
+
+This project delivers an end-to-end Business Intelligence solution tailored for executive-level decision-making in the Egyptian real estate market. It evaluates transactional performance across **5 key economic regions** (*New Cairo, Sheikh Zayed, New Capital, North Coast, and Mostakbal City*).
 
 The analytics pipeline addresses three core corporate functions:
+1. **Executive Leadership (CEO/Board):** Track macro revenue trends, net profit margins, and overall target attainment.
+2. **Sales & Channel Management:** Monitor sales agent performance and measure third-party broker contribution vs. direct acquisition channels.
+3. **Financial Leadership (CFO/Finance):** Analyze cash collection cycles, down payment inflows, BUA construction cost dynamics, and long-term receivables portfolio management.
 
-Executive Leadership (CEO/Board): Track macro revenue trends, net profit margins, and overall target attainment.
+---
 
-Sales & Channel Management: Monitor sales agent performance and measure third-party broker contribution vs. direct acquisition channels.
+## 🗄️ 1. Database Architecture & SQL Engineering (`SQL Server 2019`)
 
-Financial Leadership (CFO/Finance): Analyze cash collection cycles, down payment inflows, BUA construction cost dynamics, and long-term receivables portfolio management.
+The database was architected from scratch using a normalized **Star Schema** model to optimize Data Query Language (DQL) performance and streamline analytical reporting in Power BI.
 
-🗄️ 1. Database Architecture & SQL Engineering (SQL Server 2019)
-The database was architected from scratch using a normalized Star Schema model to optimize Data Query Language (DQL) performance and streamline analytical reporting in Power BI.
-
-🔷 A. DDL Schema Definition (01_Schema_DDL.sql)
+### 🔷 A. DDL Schema Definition (`01_Schema_DDL.sql`)
 Relational structure enforcing Primary and Foreign Key constraints:
 
-SQL
+```sql
 -- Create Database
 CREATE DATABASE RealEstate_Analytics_DB;
 GO
@@ -35,7 +44,7 @@ CREATE TABLE Dim_Regions (
 CREATE TABLE Dim_Properties (
     Property_ID INT PRIMARY KEY IDENTITY(101,1),
     Project_Name NVARCHAR(150) NOT NULL,
-    Property_Type NVARCHAR(50) NOT NULL, -- Apartment, Villa, Townhouse, Commercial
+    Property_Type NVARCHAR(50) NOT NULL,
     Area_SQM DECIMAL(10,2) NOT NULL,
     BUA_Cost_Per_SQM DECIMAL(10,2) NOT NULL,
     Region_ID INT FOREIGN KEY REFERENCES Dim_Regions(Region_ID)
@@ -71,15 +80,13 @@ CREATE TABLE Fact_Sales (
     Property_ID INT FOREIGN KEY REFERENCES Dim_Properties(Property_ID),
     Customer_ID INT FOREIGN KEY REFERENCES Dim_Customers(Customer_ID),
     Agent_ID INT FOREIGN KEY REFERENCES Dim_Agents(Agent_ID),
-    Broker_ID INT NULL FOREIGN KEY REFERENCES Dim_Brokers(Broker_ID), -- NULL for Direct Sales
+    Broker_ID INT NULL FOREIGN KEY REFERENCES Dim_Brokers(Broker_ID),
     Sales_Channel NVARCHAR(20) CHECK (Sales_Channel IN ('Direct', 'Broker')),
     Sale_Price DECIMAL(15,2) NOT NULL,
     Down_Payment_Pct DECIMAL(5,2) NOT NULL,
     Payment_Plan_Years INT NOT NULL
 );
 🔷 B. Analytical Business SQL Queries (03_Advanced_SQL_Queries.sql)
-Demonstrating query optimization, SQL window functions, and multi-table aggregated joins prior to BI ingestion:
-
 1️⃣ Regional BUA Cost vs. Net Profit Margin Analysis
 SQL
 SELECT 
@@ -103,10 +110,8 @@ SELECT
 FROM Fact_Sales f
 GROUP BY f.Sales_Channel;
 📐 2. Power BI Data Modeling & DAX Calculation Engine
-The semantic model follows a clean Star Schema architecture (1 Fact Table linked via 1-to-Many single-direction relationships to 5 Dimension Tables).
-
 🧮 Core DAX Measures Implemented
-
+مقتطف الرمز
 // 1. Total Revenue
 Total Revenue = SUM(Fact_Sales[Sale_Price])
 
@@ -143,22 +148,12 @@ DIVIDE(
     0
 )
 📊 3. Executive Dashboard Architecture (4-Page Suite)
-Designed using an Executive Dark Slate Theme (#0F172A background, #1E293B containers, #38BDF8 accents) with standardized visual layouts across all four pages:
+Designed using an Executive Dark Slate Theme (#0F172A background, #1E293B containers, #38BDF8 accents):
 
-Page 1: Executive Overview
+Page 1: Executive Overview — Macro revenue trends, MoM growth, and high-level KPIs.
 
-High-level financial cards, MoM growth trends, and regional revenue share.
+Page 2: Regional & Property Analytics — Price per SQM metrics, unit distributions, and regional revenue share.
 
-Page 2: Regional & Property Analytics
+Page 3: Sales Performance & Channel Analytics — Agent ranking vs. target, broker commissions, and channel splits.
 
-Geographical distribution, unit type performance (Villas, Apartments, Commercial), and price per SQM efficiency (Avg Price / SQM).
-
-Page 3: Sales Performance & Channel Analytics
-
-Individual sales agent ranking vs. target, broker contribution analysis, and channel commission leakages.
-
-Page 4: Financial & Cash Collection Overview
-
-CFO-level collection tracker, payment plan portfolio duration split (5 to 8 years), collected down payments vs. Remaining Receivables, and detailed regional P&L matrix.
-
-
+Page 4: Financial & Cash Collection Overview — CFO cash collection tracker, receivables vs. collected down payments, and P&L breakdown.

@@ -66,3 +66,34 @@ Net Margin Pct = DIVIDE([Net Profit], [Total Revenue], 0)
 Collection Rate Pct = DIVIDE([Total Down Payment], [Total Revenue], 0)
 
 
+```
+
+---
+
+## 📊 Executive Dashboard Architecture (4-Page Suite)
+
+Designed using an **Executive Slate Dark Theme** (`#0F172A` background, `#1E293B` containers, `#38BDF8` accents) engineered for C-Suite decision support:
+
+1. 🎯 **Page 1: Executive Overview** — Macro revenue trends, MoM growth, and high-level KPIs.
+2. 🗺️ **Page 2: Regional & Property Analytics** — Price per SQM metrics, unit distributions, and regional revenue share.
+3. 💼 **Page 3: Sales Performance & Channel Analytics** — Agent ranking vs. target, broker commissions, and channel splits.
+4. 💰 **Page 4: Financial & Cash Collection Overview** — CFO cash collection tracker, receivables vs. collected down payments, and P&L breakdown.
+
+---
+
+## 📸 Dashboard Preview
+
+| Page 1: Executive Overview | Page 2: Regional & Property Analytics |
+| :---: | :---: |
+| ![Page 1](./images/page1.png) | ![Page 2](./images/page2.png) |
+
+| Page 3: Sales & Channel Analytics | Page 4: Financial & Cash Collection |
+| :---: | :---: |
+| ![Page 3](./images/page3.png) | ![Page 4](./images/page4.png) |
+
+---
+
+## 👤 Author
+**Abdallah Rady** — *Data Analyst / BI Developer*
+* **Specialization:** SQL Server, Power BI, DAX, Data Modeling, Business Intelligence.
+

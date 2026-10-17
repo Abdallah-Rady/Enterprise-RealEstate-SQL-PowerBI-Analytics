@@ -36,6 +36,24 @@ The solution covers the entire data lifecycle: **Database Architecture & DDL Des
 * Connected Power BI to SQL Server with a clean 1-to-Many single-direction relationship model.
 * Engineered 10+ advanced DAX measures to support dynamic business logic and time intelligence.
 
+---
+  ## 📸 Dashboard Preview
+
+Designed using an **Executive Slate Dark Theme** (`#0F172A` background, `#1E293B` containers, `#38BDF8` accents) engineered for C-Suite decision support:
+
+| **Page 1: Executive Overview** | **Page 2: Regional & Property Analytics** |
+| :---: | :---: |
+| ![Executive Overview](./images/page1_executive_overview.png) | ![Regional Analytics](./images/page2_regional_analytics.png) |
+| Macro revenue trends, MoM sales growth, units sold, and overall profit margin %. | Geographic revenue distribution, price per SQM analysis (`Avg Price / SQM`), and property type breakdown. |
+
+| **Page 3: Sales Channel Analytics** | **Page 4: Financial & Cash Collection Overview** |
+| :---: | :---: |
+| ![Sales Channel Analytics](./images/page3_sales_channel_analytics.png) | ![Financial Overview](./images/page4_financial_overview.png) |
+| Agent performance vs. target ranking, broker commission leakage, and direct vs. broker split. | CFO-level cash collection tracker, remaining receivables analysis, payment plan duration, and detailed regional P&L matrix. |
+
+---
+
+
 #### 🧮 Key DAX Measures Implemented:
 
 ```dax
@@ -65,20 +83,4 @@ Net Profit = [Total Revenue] - [Total BUA Cost] - [Total Broker Commission]
 Net Margin Pct = DIVIDE([Net Profit], [Total Revenue], 0)
 Collection Rate Pct = DIVIDE([Total Down Payment], [Total Revenue], 0)
 
----
 
-## 📸 Dashboard Preview
-
-Designed using an **Executive Slate Dark Theme** (`#0F172A` background, `#1E293B` containers, `#38BDF8` accents) engineered for C-Suite decision support:
-
-| **Page 1: Executive Overview** | **Page 2: Regional & Property Analytics** |
-| :---: | :---: |
-| ![Executive Overview](./images/page1_executive_overview.png) | ![Regional Analytics](./images/page2_regional_analytics.png) |
-| Macro revenue trends, MoM sales growth, units sold, and overall profit margin %. | Geographic revenue distribution, price per SQM analysis (`Avg Price / SQM`), and property type breakdown. |
-
-| **Page 3: Sales Channel Analytics** | **Page 4: Financial & Cash Collection Overview** |
-| :---: | :---: |
-| ![Sales Channel Analytics](./images/page3_sales_channel_analytics.png) | ![Financial Overview](./images/page4_financial_overview.png) |
-| Agent performance vs. target ranking, broker commission leakage, and direct vs. broker split. | CFO-level cash collection tracker, remaining receivables analysis, payment plan duration, and detailed regional P&L matrix. |
-
----

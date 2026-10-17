@@ -1,4 +1,4 @@
-# 🏢 Enterprise Real Estate Analytics System (SQL Server 2019 & Power BI)
+# 🏢 Enterprise Real Estate Analytics System (SQL Server & Power BI)
 
 ![Database Architecture](https://img.shields.io/badge/SQL%20Server-2019-red?style=for-the-badge&logo=microsoftsqlserver)
 ![Analytics Tool](https://img.shields.io/badge/Power%20BI-Desktop-yellow?style=for-the-badge&logo=powerbi)

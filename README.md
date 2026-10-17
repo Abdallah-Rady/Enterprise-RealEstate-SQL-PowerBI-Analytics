@@ -93,6 +93,11 @@ Designed using an **Executive Slate Dark Theme** (`#0F172A` background, `#1E293B
 
 ---
 
+## 📑 Executive Presentation & Business Insights
+* 📄 [`Real_Estate_Business.pdf`](./Real_Estate_Business.pdf): Comprehensive 10-slide executive pitch deck detailing financial performance, regional profitability, cash collection risks, and strategic recommendations for board members.
+
+---
+
 ## 👤 Author
 **Abdallah Rady** — *Data Analyst / BI Developer*
 * **Specialization:** SQL Server, Power BI, DAX, Data Modeling, Business Intelligence.
